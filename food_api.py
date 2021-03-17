@@ -4,24 +4,28 @@ from pprint import pprint
 
 
 
-def main():
-    item=input('what would you like to eat? ')
-    data=get_food(item)
-    food_items = data['menuItems']
-    #pprint(food_items)
-    for food in food_items:
-        restaurant=extract_restaurant(food)
-        choices=extract_different_options(food)
-        print(choices, 'restaurant name:', restaurant)
+def display(pairing):
+    index=1
+    print('here is list of food that will be good with th wine')
+    #pprint(pairing)
+    for food in pairing:
+       print('food', index, food)
+       index=index+1
 
+
+def get_description(data):
+    return data['text']
+
+def get_pairing(data):
+    return data['pairings']
 
 
 def get_food(order):
 
-    url= 'https://api.spoonacular.com/food/menuItems/search'
+    url= 'https://api.spoonacular.com/food/wine/dishes'
     key = os.environ.get('FOOD_API')
-    item='%s'%(order)
-    params = {'query': item, 'apiKey': key}
+    wine='%s'%(order)
+    params = {'wine': wine, 'apiKey': key}
     data = requests.get(url, params).json()
 
     if data:
@@ -37,7 +41,3 @@ def extract_different_options(data):
 
 def extract_restaurant(data):
     return data['restaurantChain']
-
-
-if __name__ == '__main__':
-    main()
