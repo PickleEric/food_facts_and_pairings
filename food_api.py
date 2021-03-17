@@ -41,3 +41,4 @@ def extract_different_options(data):
 
 def extract_restaurant(data):
     return data['restaurantChain']
+
