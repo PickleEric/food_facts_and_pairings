@@ -17,8 +17,13 @@ def main():
 
         if selection == 1:
             food = input('enter the food: ')
+
+            # this will become an object 
             food, drink, picture, instructions, ingredient1, ingredient2, ingredient3 = cocktail_api_setup.getcockaildrink(food)
+            
             print(picture)
+
+            # create a function to display the info 
             print(f'To make this drink at home the the instructions are {instructions}')
             print(f'A good drink with {food} is {drink}')
             print(f'The three main ingredients are {ingredient1}, {ingredient2}, and {ingredient3}')

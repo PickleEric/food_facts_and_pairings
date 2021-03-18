@@ -13,6 +13,7 @@ def getcockaildrink(food):   # pass the food in as an argument
         drinkapi = data['drinks']
 
         # there's a loop here but you are only using the last item in the list 
+
         for data in drinkapi:
             drink = data['strDrink']
             picture = data['strDrinkThumb']
@@ -21,7 +22,9 @@ def getcockaildrink(food):   # pass the food in as an argument
             ingredient2 = data['strIngredient2']
             ingredient3 = data['strIngredient3']
 
-        return food, drink, picture, instructions, ingredient1, ingredient2, ingredient3
+        return food, drink, picture, instructions, ingredient1, ingredient2, ingredient3  
+        # consider making a class or a dataclass to contain all these variables 
+
     
 
     except Exception as e:
@@ -29,7 +32,7 @@ def getcockaildrink(food):   # pass the food in as an argument
         print('There was an error contacting the API')
 
 
-def make_cocktail_api_request(url):  # mock this in order to test 
+def make_cocktail_api_request(url):  # moc=k this in order to test 
     return requests.get(url).json()  
 
 
