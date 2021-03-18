@@ -16,7 +16,15 @@ def main():
         + ' Press any other number to quit: '))
 
         if selection == 1:
-            cocktail_api_setup.getcockaildrink()
+            food = input('enter the food: ')
+            food, drink, picture, instructions, ingredient1, ingredient2, ingredient3 = cocktail_api_setup.getcockaildrink(food)
+            print(picture)
+            print(f'To make this drink at home the the instructions are {instructions}')
+            print(f'A good drink with {food} is {drink}')
+            print(f'The three main ingredients are {ingredient1}, {ingredient2}, and {ingredient3}')
+
+            # todo ask use if they want to save this info 
+
         #elif selection == 2:
            # food_api.get_food()
         elif selection == 3:
@@ -24,11 +32,9 @@ def main():
         #elif selection == 4:
             #NEEDSQLMODULE TO WORK GET INFORMATION saved by user
         else:
-            exit()
+            pass # just let the loop end 
 
             
-
-
 if __name__ == '__main__':
     main()
 

@@ -3,33 +3,37 @@ from pprint import pprint
 
 url = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
 
-def getcockaildrink():
+def getcockaildrink(food):   # pass the food in as an argument
 
     try:
-        food = input('What food would like like a cocktail to pair with? ')
-
-        response = requests.get(url)
-        data = response.json()
+        data = make_cocktail_api_request(url)   # mock this call 
+       
         pprint(data)
 
         drinkapi = data['drinks']
+
+        # there's a loop here but you are only using the last item in the list 
         for data in drinkapi:
             drink = data['strDrink']
             picture = data['strDrinkThumb']
             instructions = data['strInstructions']
-            ingrediet1 = data['strIngredient1']
-            ingrediet2 = data['strIngredient2']
-            ingrediet3 = data['strIngredient3']
-        print(picture)
-        print(f'To make this drink at home the the instructions are {instructions}')
-        pprint(f'A good drink with {food} is {drink}')
-        print(f'The three main ingredients are {ingrediet1}, {ingrediet2}, and {ingrediet3}')
+            ingredient1 = data['strIngredient1']
+            ingredient2 = data['strIngredient2']
+            ingredient3 = data['strIngredient3']
 
-        return food, drink, picture, instructions, ingrediet1, ingrediet2, ingrediet3
+        return food, drink, picture, instructions, ingredient1, ingredient2, ingredient3
     
 
     except Exception as e:
         print(e)
         print('There was an error contacting the API')
 
-getcockaildrink()
+
+def make_cocktail_api_request(url):  # mock this in order to test 
+    return requests.get(url).json()  
+
+
+# for manually testing this module 
+if __name__ == '__main__':
+    food = input('What food would like like a cocktail to pair with? ')
+    getcockaildrink(food)
