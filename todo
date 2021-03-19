@@ -1,0 +1,19 @@
+Is new menu structure ok?
+
+User enters a food (e.g. "Tacos" or "Pizza") and app will fetch info about that food AND a beer AND a cocktail
+User will have choice of saving all of this info as a group/collection of data 
+
+Food API - decide what data this will return 
+   - keep this simple - maybe a few pieces of data about a food 
+
+Overall principle - something with fewer features but implemented well, designed well, and tested - is better
+
+Database design - table or tables? 
+Fill in db methods 
+
+Tests - for APIs, database 
+
+Code quality - spelling variable names, python code conventions 
+Review modules, functions - S in SOLID 
+
+

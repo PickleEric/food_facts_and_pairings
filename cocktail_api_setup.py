@@ -32,7 +32,7 @@ def getcockaildrink(food):   # pass the food in as an argument
         print('There was an error contacting the API')
 
 
-def make_cocktail_api_request(url):  # moc=k this in order to test 
+def make_cocktail_api_request(url):  # mock this in order to test 
     return requests.get(url).json()  
 
 
