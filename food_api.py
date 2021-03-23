@@ -2,7 +2,7 @@ import requests
 import os
 from pprint import pprint
 
-
+# todo decide what data you'll return - keep it simple if possible 
 
 def display(pairing):
     index=1
@@ -30,6 +30,7 @@ def get_food(order):
 
     if data:
         return data
+        # do you need to do more proccesing?
     else:
         return None
 
